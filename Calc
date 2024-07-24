@@ -1,0 +1,318 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+char choice[30];
+float area;
+float perimeter;
+float width;
+float length;
+float top_radius;
+float surface_area;
+float volume;
+float radius;
+float height;
+float diagonal1;
+float diagonal2;
+float slant_height;
+float base_area;
+float top_area;
+
+// Function to calculate the area or perimeter of a square
+void squareFunction() {
+    printf("Choose one: area or perimeter\n");
+    scanf("%s", choice);
+    if (strcmp(choice, "area") == 0) {
+        printf("Enter one side\n");
+        scanf("%f", &length);
+        area = length * length;
+        printf("The area of a square is %.2f square units\n", area);
+    } else if (strcmp(choice, "perimeter") == 0) {
+        printf("Enter one side\n");
+        scanf("%f", &length);
+        perimeter = 4 * length;
+        printf("The perimeter of a square is %.2f units\n", perimeter);
+    } else {
+        printf("Input error\n");
+    }
+}
+
+// Function to calculate the area or perimeter of a rectangle
+void rectangleFunction() {
+    printf("Choose one: area or perimeter\n");
+    scanf("%s", choice);
+    if (strcmp(choice, "area") == 0) {
+        printf("Enter length\n");
+        scanf("%f", &length);
+        printf("Enter width\n");
+        scanf("%f", &width);
+        area = length * width;
+        printf("The area of a rectangle is %.2f square units\n ", area);
+    } else if (strcmp(choice, "perimeter") == 0) {
+        printf("Enter length\n");
+        scanf("%f", &length);
+        printf("Enter width\n");
+        scanf("%f", &width);
+        perimeter = 2 * (length + width);
+        printf("The perimeter of a rectangle is %.2f units\n", perimeter);
+    } else {
+        printf("Input error\n");
+    }
+}
+
+// Function to calculate the area or perimeter of a circle
+void circleFunction() {
+    printf("Choose one: area or perimeter\n");
+    scanf("%s", choice);
+    if (strcmp(choice, "area") == 0) {
+        printf("Enter the radius:\n");
+        scanf("%f", &radius);
+        area = M_PI * radius * radius;
+        printf("Area of the circle = %.2f square units\n", area);
+    } else if (strcmp(choice, "perimeter") == 0) {
+        printf("Enter the radius of the circle\n");
+        scanf("%f", &radius);
+        perimeter = 2 * M_PI * radius;
+        printf("Perimeter of circle is %.2f units\n", perimeter);
+    } else {
+        printf("Input error\n");
+    }
+}
+
+// Function to calculate the volume or surface area of a cuboid
+void cuboidFunction() {
+    printf("Choose one: volume or surface area\n");
+    scanf("%s", choice);
+    if (strcmp(choice, "volume") == 0) {
+        printf("Enter length\n");
+        scanf("%f", &length);
+        printf("Enter width\n");
+        scanf("%f", &width);
+        printf("Enter height\n");
+        scanf("%f", &height);
+        volume = length * width * height;
+        printf("The volume of the cuboid is %.2f cubic units\n", volume);
+    } else if (strcmp(choice, "surface area") == 0) {
+        printf("Enter length\n");
+        scanf("%f", &length);
+        printf("Enter width\n");
+        scanf("%f", &width);
+        printf("Enter height\n");
+        scanf("%f", &height);
+        surface_area = 2 * (length * width + length * height + width * height);
+        printf("The surface area of the cuboid is %.2f square units\n", surface_area);
+    } else {
+        printf("Input error\n");
+    }
+}
+
+// Function to calculate the area or perimeter of a parallelogram
+void parallelogramFunction() {
+    printf("Choose one: area or perimeter\n");
+    scanf("%s", choice);
+    if (strcmp(choice, "area") == 0) {
+        printf("Enter base length\n");
+        scanf("%f", &length);
+        printf("Enter height\n");
+        scanf("%f", &height);
+        area = length * height;
+        printf("The area of the parallelogram is %.2f square units\n", area);
+    } else if (strcmp(choice, "perimeter") == 0) {
+        printf("Enter base length\n");
+        scanf("%f", &length);
+        printf("Enter side length\n");
+        scanf("%f", &width);
+        perimeter = 2 * (length + width);
+        printf("The perimeter of the parallelogram is %.2f units\n", perimeter);
+    } else {
+        printf("Input error\n");
+    }
+}
+
+// Function to calculate the volume or surface area of a cylinder
+void cylinderFunction() {
+    printf("Choose one: volume or surface area\n");
+    scanf("%s", choice);
+    if (strcmp(choice, "volume") == 0) {
+        printf("Enter the radius\n");
+        scanf("%f", &radius);
+        printf("Enter the height\n");
+        scanf("%f", &height);
+        volume = M_PI * radius * radius * height;
+        printf("The volume of the cylinder is %.2f cubic units\n", volume);
+    } else if (strcmp(choice, "surface area") == 0) {
+        printf("Enter the radius\n");
+        scanf("%f", &radius);
+        printf("Enter the height\n");
+        scanf("%f", &height);
+        surface_area = 2 * M_PI * radius * (radius + height);
+        printf("The surface area of the cylinder is %.2f square units\n", surface_area);
+    } else {
+        printf("Input error\n");
+    }
+}
+
+// Function to calculate the volume or surface area of a frustum
+void frustumFunction() {
+    printf("Choose one: volume or surface area\n");
+    scanf("%s", choice);
+    if (strcmp(choice, "volume") == 0) {
+        printf("Enter the top radius\n");
+        scanf("%f", &top_radius);
+        printf("Enter the bottom radius\n");
+        scanf("%f", &radius);
+        printf("Enter the slant height\n");
+        scanf("%f", &slant_height);
+        volume = (1.0 / 3.0) * M_PI * slant_height * (top_radius * top_radius + top_radius * radius + radius * radius);
+        printf("The volume of the frustum is %.2f cubic units\n", volume);
+    } else if (strcmp(choice, "surface area") == 0) {
+        printf("Enter the top radius\n");
+        scanf("%f", &top_radius);
+        printf("Enter the bottom radius\n");
+        scanf("%f", &radius);
+        printf("Enter the slant height\n") ;
+        scanf("%f", &slant_height);
+        surface_area = M_PI * (top_radius + radius) * slant_height + M_PI * top_radius * top_radius + M_PI * radius * radius;
+        printf("The surface area of the frustum is %.2f square units\n", surface_area);
+    } else {
+        printf("Input error\n");
+    }
+}
+
+// Function to calculate the area of a rhombus
+void rhombusFunction() {
+    printf("Enter the first diagonal\n");
+    scanf("%f", &diagonal1);
+    printf("Enter the second diagonal\n");
+    scanf("%f", &diagonal2);
+    area = 0.5 * diagonal1 * diagonal2;
+    printf("The area of the rhombus is %.2f square units\n", area);
+}
+
+// Function to calculate the volume or surface area of a cube
+void cubeFunction() {
+    printf("Choose one: volume or surface area\n");
+    scanf("%s", choice);
+    if (strcmp(choice, "volume") == 0) {
+        printf("Enter the length of a side\n");
+        scanf("%f", &length);
+        volume = length * length * length;
+        printf("The volume of the cube is %.2f cubic units\n", volume);
+    } else if (strcmp(choice, "surface area") == 0) {
+        printf("Enter the length of a side\n");
+        scanf("%f", &length);
+        surface_area = 6 * length * length;
+        printf("The surface area of the cube is %.2f square units\n", surface_area);
+    } else {
+        printf("Input error\n");
+    }
+}
+
+// Function to calculate the volume or surface area of a pyramid
+void pyramidFunction() {
+    printf("Choose one: volume or surface area\n");
+    scanf("%s", choice);
+    if (strcmp(choice, "volume") == 0) {
+        printf("Enter the base area\n");
+        scanf("%f", &base_area);
+        printf("Enter the height\n");
+        scanf("%f", &height);
+        volume = (1.0 / 3.0) * base_area * height;
+        printf("The volume of the pyramid is %.2f cubic units\n", volume);
+    } else if (strcmp(choice, "surface area") == 0) {
+        printf("Enter the base area\n");
+        scanf("%f", &base_area);
+        printf("Enter the slant height\n");
+        scanf("%f", &slant_height);
+        surface_area = base_area + 0.5 * slant_height * base_area;
+        printf("The surface area of the pyramid is %.2f square units\n", surface_area);
+    } else {
+        printf("Input error\n");
+    }
+}
+
+// Function to calculate the volume or surface area of a sphere
+void sphereFunction() {
+    printf("Choose one: volume or surface area\n");
+    scanf("%s", choice);
+    if (strcmp(choice, "volume") == 0) {
+        printf("Enter the radius\n");
+        scanf("%f", &radius);
+        volume = (4.0 / 3.0) * M_PI * radius * radius * radius;
+        printf("The volume of the sphere is %.2f cubic units\n", volume);
+    } else if (strcmp(choice, "surface area") == 0) {
+        printf("Enter the radius\n");
+        scanf("%f", &radius);
+        surface_area = 4 * M_PI * radius * radius;
+        printf("The surface area of the sphere is %.2f square units\n", surface_area);
+    } else {
+        printf("Input error\n");
+    }
+}
+
+int main() {
+    int option;
+
+    do {
+        printf("\nWelcome to the program that performs calculations of various geometric shapes\n");
+        printf("1. Square\n");
+        printf("2. Rectangle\n");
+        printf("3. Circle\n");
+        printf("4. Cuboid\n");
+        printf("5. Parallelogram\n");
+        printf("6. Cylinder\n");
+        printf("7. Frustum\n");
+        printf("8. Rhombus\n");
+        printf("9. Cube\n");
+        printf("10. Pyramid\n");
+        printf("11. Sphere\n");
+        printf("0. Exit\n");
+        printf("Choose an option: ");
+        scanf("%d", &option);
+
+        switch (option) {
+            case 1:
+                squareFunction();
+                break;
+            case 2:
+                rectangleFunction();
+                break;
+            case 3:
+                circleFunction();
+                break;
+            case 4:
+                cuboidFunction();
+                break;
+            case 5:
+                parallelogramFunction();
+                break;
+            case 6:
+                cylinderFunction();
+                break;
+            case 7:
+                frustumFunction();
+                break;
+            case 8:
+                rhombusFunction();
+                break;
+            case 9:
+                cubeFunction();
+                break;
+            case 10:
+                pyramidFunction();
+                break;
+            case 11:
+                sphereFunction();
+                break;
+            case 0:
+                printf("Exiting...\n");
+                break;
+            default:
+                printf("Invalid option\n");
+                break;
+        }
+    } while (option != 0);
+
+    return 0;
+}
