@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <math.h>
+
+// Function prototype for mode calculation
+int mode(int a[], int n);
+
+int main() {
+    int n = 20;
+    int numbers[n];
+    double sum = 0.0, mean, variance, standardDeviation = 0.0, square, median;
+printf("a program that calculates mean, variance, StandardDeviation, square, median and mode of 20 numbers \n");
+    // Input numbers
+    printf("Enter %d numbers:\n", n);
+    for (int i = 0; i < n; ++i) {
+        printf("Enter number %d: ", i + 1);
+        scanf("%d", &numbers[i]);
+        sum += numbers[i];
+        square = numbers[i] * numbers[i]; // Calculate square of the number
+        printf("%.2lf\n", square);
+    }
+
+    // Calculate mean
+    mean = sum / n;
+
+    // Calculate standard deviation
+    for (int i = 0; i < n; ++i) {
+        standardDeviation += pow(numbers[i] - mean, 2);
+    }
+    standardDeviation = sqrt(standardDeviation / n);
+    variance = pow(standardDeviation, 2);
+
+    // Calculate mode
+    int modeValue = mode(numbers, n);
+    printf("Mode = %d\n", modeValue);
+
+    // Calculate median
+    if (n % 2 == 0) {
+        median = (numbers[(n - 1) / 2] + numbers[n / 2]) / 2.0;
+    } else {
+        median = numbers[n / 2];
+    }
+
+    // Print the results
+    printf("Sum = %.2lf\n", sum);
+    printf("Mean = %.2lf\n", mean);
+    printf("Standard Deviation = %.2lf\n", standardDeviation);
+    printf("Variance = %.2lf\n", variance);
+    printf("Median = %.2f\n", median);
+
+    return 0;
+}
+
+// Function to calculate mode
+int mode(int a[], int n) {
+    int maxValue = 0, maxCount = 0, i, j;
+    for (i = 0; i < n; ++i) {
+        int count = 0;
+        for (j = 0; j < n; ++j) {
+            if (a[j] == a[i])
+                ++count;
+        }
+        if (count > maxCount) {
+            maxCount = count;
+            maxValue = a[i];
+        }
+    }
+    return maxValue;
+}
