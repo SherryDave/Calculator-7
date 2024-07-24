@@ -1,0 +1,119 @@
+#include <stdio.h>
+#include <math.h>
+
+void print_menu() {
+    printf("1. Addition\n");
+    printf("2. Subtraction\n");
+    printf("3. Division\n");
+    printf("4. Product\n");
+    printf("5. Square\n");
+    printf("6. Tangent\n");
+    printf("7. Sine\n");
+    printf("8. Cosine\n");
+    printf("9. Square Root\n");
+    printf("10. Quit\n");
+}
+
+void calculate_addition(double x, double y) {
+    double result = x + y;
+    printf("Addition = %.2lf\n", result);
+}
+
+void calculate_subtraction(double x, double y) {
+    double result = x - y;
+    printf("Subtraction = %.2lf\n", result);
+}
+
+void calculate_division(double x, double y) {
+    if (y != 0) {
+        double result = x / y;
+        printf("Division = %.2lf\n", result);
+    } else {
+        printf("Division by zero is not allowed.\n");
+    }
+}
+
+void calculate_product(double x, double y) {
+    double result = x * y;
+    printf("Product = %.2lf\n", result);
+}
+
+void calculate_square(double x) {
+    double result = x * x;
+    printf("Square = %.2lf\n", result);
+}
+
+void calculate_tangent(double x) {
+    double result = tan(x);
+    printf("Tangent(%lf) = %.2lf\n", x, result);
+}
+
+void calculate_sine(double x) {
+    double result = sin(x);
+    printf("Sine(%lf) = %.2lf\n", x, result);
+}
+
+void calculate_cosine(double x) {
+    double result = cos(x);
+    printf("Cosine(%lf) = %.2lf\n", x, result);
+}
+
+void calculate_square_root(double x) {
+    double result = sqrt(x);
+    printf("Square Root(%lf) = %.2lf\n", x, result);
+}
+
+int main() {
+    int choice;
+    double x, y;
+    
+    while (1) {
+        print_menu();
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        
+        if (choice == 10) {
+            break;
+        }
+        
+        printf("Enter the first number: ");
+        scanf("%lf", &x);
+        printf("Enter the second number: ");
+        scanf("%lf", &y);
+        
+        switch (choice) {
+            case 1:
+                calculate_addition(x, y);
+                break;
+            case 2:
+                calculate_subtraction(x, y);
+                break;
+            case 3:
+                calculate_division(x, y);
+                break;
+            case 4:
+                calculate_product(x, y);
+                break;
+            case 5:
+                calculate_square(x);
+                break;
+            case 6:
+                calculate_tangent(x);
+                break;
+            case 7:
+                calculate_sine(x);
+                break;
+            case 8:
+                calculate_cosine(x);
+                break;
+            case 9:
+                calculate_square_root(x);
+                break;
+            default:
+                printf("Invalid choice. Please try again.\n");
+                break;
+        }
+    }
+    
+    return 0;
+}
