@@ -1,0 +1,40 @@
+#game guesser 
+import random
+
+def number_guessing_game():
+    """
+    Generates a random number between 1 and 100 and asks the user to guess it.
+    Provides hints, restricts input to the 1-100 range, and allows a maximum of 5 attempts.
+    Displays the correct number if the user fails to guess it within the allowed attempts.
+    """
+    number = random.randint(1, 100)
+    attempts = 0
+    max_attempts = 5
+
+    while attempts < max_attempts:
+        try:
+            guess = int(input(f"Guess a number between 1 and 100 (Attempt {attempts + 1}/{max_attempts}): "))
+
+            if guess < 1 or guess > 100:
+                print("Please enter a number between 1 and 100.")
+                continue  # Skip the rest of the loop and ask for input again
+
+            attempts += 1
+
+            if guess < number:
+                print("Too low!")
+            elif guess > number:
+                print("Too high!")
+            else:
+                print(f"Congratulations! You guessed the number in {attempts} attempts.")
+                return  # Exit the function if the guess is correct
+
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+    # If the loop completes without a correct guess
+    print(f"You ran out of attempts. The correct number was {number}.")
+
+
+number_guessing_game()
+    
