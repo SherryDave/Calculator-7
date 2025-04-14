@@ -1,0 +1,24 @@
+#selection of 3 colors 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Picker</title>
+</head>
+<body>
+    <h1>Select Three Colors</h1>
+    <div>
+        <label for="color1">Color 1:</label>
+        <input type="color" id="color1" name="color1" value="#ff0000">
+    </div>
+    <div>
+        <label for="color2">Color 2:</label>
+        <input type="color" id="color2" name="color2" value="#00ff00">
+    </div>
+    <div>
+        <label for="color3">Color 3:</label>
+        <input type="color" id="color3" name="color3" value="#0000ff">
+    </div>
+</body>
+</html>
